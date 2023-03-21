@@ -1,0 +1,46 @@
+{
+    "nombreApp" : "componentes",
+    "iconApp" : "icon",
+    "rutas" : [
+        {
+            "ruta" : "alert",
+            "icon" : "add_alert",
+            "texto" : "Alertas",
+            "texto2" :"Se mostraran alertas"
+            
+        },
+        {
+            "ruta" : "inputs",
+            "icon" : "input",
+            "texto" : "Entradas de datos",
+            "texto2" :"Se mostraran alertas"
+        },
+        {
+            "ruta" : "card",
+            "icon" : "folder_open",
+            "texto" : "Card - Tarjetas",
+            "texto2" :"Se mostraran alertas"
+        },
+        {
+            "ruta" : "firebase",
+            "icon" : "add_data",
+            "texto" : "Firebase Storage",
+            "texto2" :"Se mostraran alertas"
+        },
+        {
+            "ruta" : "list",
+            "icon" : "list",
+            "texto" : "Listas y scrolls",
+            "texto2" :"Se mostraran alertas"
+        },
+        {
+            "ruta" : "camara",
+            "icon" : "camera",
+            "texto" : "Tomar foto",
+            "texto2" :"Se mostraran alertas"
+        }
+
+    ]
+
+
+}
