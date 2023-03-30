@@ -1,4 +1,5 @@
 import 'package:componentes/providers/menu_providers.dart';
+import 'package:componentes/ui/screens/alerts_screens.dart';
 import 'package:componentes/utils/icons_mapping.dart';
 import 'package:flutter/material.dart';
 
@@ -9,7 +10,8 @@ class HomePageTemp extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('componentes de flutter'),
+        title: const Text('Componentes de Flutter'),
+        backgroundColor: Color.fromARGB(255, 9, 125, 183),
       ),
       body: _lista(),
     );
@@ -17,30 +19,22 @@ class HomePageTemp extends StatelessWidget {
 }
 
 Widget _lista() {
-  //recuperacion de datos de un archivo .json
-  // print(menuProvider.opciones);
-  // menuProvider.loadData().then((opciones) {
-  //   print('_lista: ');
-  //   print(opciones);
-  // });
-  //return ListView(
-  // children: _listaItems(),
-  // );
   return FutureBuilder(
     future: menuProvider.loadData(),
+    initialData: const [],
     builder: (BuildContext context, AsyncSnapshot<List<dynamic>> snapshot) {
-      print('builder: ');
-      print(snapshot.data);
+      //print('builder: ');
+      //print(snapshot.data);
       return ListView(
-        children: _listaItems(snapshot.data as List<dynamic>),
+        children: _listaItems(snapshot.data as List<dynamic>,context),
       );
     },
   );
 }
 
-List<Widget> _listaItems(List<dynamic> data){
+List<Widget> _listaItems(List<dynamic> data, BuildContext context){
   final List<Widget> opciones =[];
- IconMapping iconMap = const IconMapping();
+   IconMapping iconMap = IconMapping();
 
   data.forEach((opt){
     final tile = ListTile(
@@ -48,10 +42,15 @@ List<Widget> _listaItems(List<dynamic> data){
       leading: iconMap.getIcon(opt['icon']),
       trailing: const Icon(
         Icons.keyboard_arrow_right,
+        color: Color.fromARGB(255, 108, 100, 108),
       ),
       subtitle: Text(opt['texto2']),
       onTap: () {
-        
+        // final route = MaterialPageRoute(builder:(context){
+        //   return const AlertsScreen();
+        // });
+        Navigator.pushNamed(context,opt['ruta']);
+        //Navigator.push(context, route);
       },
       );
     opciones
