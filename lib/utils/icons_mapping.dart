@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 
-//definir un mapa
-final _icons = <String, IconData>{
+
+class IconMapping  {
+
+  //definir un mapa
+final _icons = const <String, IconData>{
     'add_alert' : Icons.add_alert,
     'input' : Icons.input,
     'folder_open' : Icons.folder_open,
@@ -11,9 +14,13 @@ final _icons = <String, IconData>{
 
 };
 
-Icon getIcon(String iconName) {
+const IconMapping();
+
+
+  Icon getIcon(String iconName) {
   return Icon(
     _icons[iconName],
     color: Colors.indigoAccent,
   );
+}
 }
